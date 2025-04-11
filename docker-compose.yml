@@ -50,7 +50,7 @@ services:
       timeout: 1s
       retries: 3
       start_period: 30s
-      start_interval: 5s
+     # start_interval: 5s
 
   misp-core:
     image: ghcr.io/misp/misp-docker/misp-core:${CORE_RUNNING_TAG:-latest}

@@ -1,3 +1,4 @@
+version: "3.8"
 services:
   # This is capable to relay via gmail, Amazon SES, or generic relays
   # See: https://hub.docker.com/r/ixdotai/smtp
@@ -73,12 +74,9 @@ services:
           - PYPI_PYMISP_VERSION=${PYPI_PYMISP_VERSION}
           - PYPI_MISP_STIX_VERSION=${PYPI_MISP_STIX_VERSION}
     depends_on:
-      redis:
-        condition: service_healthy
-      db:
-        condition: service_healthy
-      misp-modules:
-        condition: service_healthy
+     - redis
+     - db
+     - misp-modules
     healthcheck:
       test: curl -ks ${BASE_URL:-https://localhost}/users/heartbeat > /dev/null || exit 1
       interval: 2s

@@ -20,7 +20,7 @@ services:
       timeout: 1s
       retries: 3
       start_period: 5s
-      start_interval: 5s
+     # start_interval: 5s
 
   db:
     # We use MariaDB because it supports ARM and has the expected collations
@@ -83,7 +83,7 @@ services:
       timeout: 1s
       retries: 3
       start_period: 30s
-      start_interval: 30s
+    #  start_interval: 30s
     ports:
       - "80:80"
       - "443:443"
@@ -258,7 +258,7 @@ services:
       timeout: 1s
       retries: 3
       start_period: 5s
-      start_interval: 5s
+   #   start_interval: 5s
     volumes:
       # custom MISP modules are loaded at startup time
       - "./custom/action_mod/:/custom/action_mod/"
